@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,7 +14,7 @@ export class AdminDashboardComponent {
   totalTeachers: number = 0;
   totalAttendanceRecords: number = 0;
 
-  constructor() { }
+  constructor(private routes: Router) { }
 
   ngOnInit(): void {
     this.getDashboardStats();
@@ -32,5 +33,8 @@ export class AdminDashboardComponent {
   //     }
   //   );
   // }
+  }
+  manageTeachers() {
+    this.routes.navigate(['/manage-teachers']);
   }
 }

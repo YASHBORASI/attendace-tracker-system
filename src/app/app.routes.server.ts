@@ -17,4 +17,8 @@ export const serverRoutes: ServerRoute[] = [
     path: 'teacher-dashboard',
     renderMode: RenderMode.Client
   },
+  {
+    path: 'manage-teachers',
+    renderMode: RenderMode.Client
+  },
 ];

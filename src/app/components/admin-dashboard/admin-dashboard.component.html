@@ -6,7 +6,7 @@
       <app-stat-card title="Attendance Records" [count]="totalAttendanceRecords"></app-stat-card>
     </div>
     <div class="admin-actions">
-      <button routerLink="/admin/manage-teachers">Manage Teachers</button>
+      <button routerLink="/manage-teachers" (click)="manageTeachers()">Manage Teachers</button>
       <button routerLink="/admin/manage-students">Manage Students</button>
       <button routerLink="/admin/attendance-reports">Attendance Reports</button>
       <button routerLink="/admin/manage-courses">Manage Courses</button>
