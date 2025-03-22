@@ -1,0 +1,96 @@
+/* General container styling */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  /* Style for the form elements */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label styling */
+  label {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Input fields styling */
+  input, select {
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Focus effect for input and select fields */
+  input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Style for validation error messages */
+  small {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  /* Submit button styling */
+  button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover and disabled state for the button */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 600px) {
+    .login-container {
+      padding: 15px;
+    }
+  
+    label {
+      font-size: 14px;
+    }
+  
+    input, select {
+      padding: 8px;
+      font-size: 13px;
+    }
+  
+    button {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  

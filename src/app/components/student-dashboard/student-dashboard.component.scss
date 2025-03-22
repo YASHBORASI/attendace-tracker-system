@@ -1,0 +1,85 @@
+/* General layout for the dashboard page */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .dashboard-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  /* Statistics Cards Section */
+  .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
+  }
+  
+  /* Action Cards Section */
+  .student-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  /* Individual action cards */
+  .action-card {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .action-card i {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .action-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+    }
+  
+    .stats-cards {
+      gap: 15px;
+    }
+  
+    .student-actions {
+      gap: 15px;
+    }
+  
+    .action-card {
+      padding: 15px;
+      font-size: 1.1em;
+    }
+  }
+  

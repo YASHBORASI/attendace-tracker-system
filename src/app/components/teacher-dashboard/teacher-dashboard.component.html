@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+    <h1>Teacher Dashboard</h1>
+  
+    <!-- Statistics Cards -->
+    <div class="stats-cards">
+      <app-stat-card title="Total Subjects" [count]="totalSubjects"></app-stat-card>
+      <app-stat-card title="Total Classes" [count]="totalClasses"></app-stat-card>
+      <app-stat-card title="Upcoming Classes" [count]="upcomingClasses"></app-stat-card>
+    </div>
+  
+    <!-- Action Buttons -->
+    <div class="teacher-actions">
+      <div *ngFor="let action of actions" class="action-card" (click)="onActionClick(action.route)">
+        <i [class]="action.icon"></i>
+        <span>{{ action.title }}</span>
+      </div>
+    </div>
+  </div>
+  

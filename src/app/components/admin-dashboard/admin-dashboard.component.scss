@@ -1,0 +1,131 @@
+/* General layout for the dashboard page */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  /* Header and title */
+  .dashboard-container h1 {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  /* Responsive grid layout for cards */
+  .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1300px;
+    margin-bottom: 40px;
+  }
+  
+  /* Card styling */
+  .stat-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Hover effect for cards */
+  .stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Card title */
+  .stat-card h2 {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  
+  /* Count displayed in the card */
+  .stat-card .count {
+    font-size: 3em;
+    font-weight: 700;
+    color: #007bff;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  /* Subtext or label under the count */
+  .stat-card .subtext {
+    font-size: 1em;
+    color: #888;
+  }
+  
+  /* Add decorative background patterns to cards (optional) */
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+  }
+  
+  /* Section for action buttons (e.g., Manage Students, View Reports) */
+  .admin-actions, .teacher-actions, .student-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  /* Style for action buttons */
+  button {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:active {
+    background-color: #004494;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 2.2em;
+    }
+  
+    button {
+      font-size: 1em;
+    }
+  }
+  

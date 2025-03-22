@@ -1,0 +1,35 @@
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Username Field -->
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" placeholder="Enter your username" />
+      <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+        <small *ngIf="loginForm.get('username')?.errors?.['required']">Username is required.</small>
+        <small *ngIf="loginForm.get('username')?.errors?.['minlength']">
+          Username must be at least 4 characters long.
+        </small>
+      </div>
+  
+      <!-- Password Field -->
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="Enter your password" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          Password must be at least 6 characters long.
+        </small>
+      </div>
+  
+      <!-- Dropdown Field -->
+      <label for="role">Choose an option</label>
+      <select id="role" formControlName="role">
+        <option *ngFor="let option of dropdownOptions" [value]="option">{{ option }}</option>
+      </select>
+      <div *ngIf="loginForm.get('role')?.invalid && loginForm.get('role')?.touched">
+        <small>Selection is required.</small>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
