@@ -7,13 +7,23 @@
       <app-stat-card title="Total Classes" [count]="totalClasses"></app-stat-card>
       <app-stat-card title="Upcoming Classes" [count]="upcomingClasses"></app-stat-card>
     </div>
+    <div class="admin-actions">
+      <button routerLink="/manage-subjects-t" (click)="ManageSubjectsT()">Manage Subjects</button>
+      <button routerLink="/manage-subjects-t"(click)="ViewAttendanceT()">View Attendance</button>
+      <button routerLink="/schedule-classes-t"(click)="ScheduleClassesT()">Schedule Classes</button>
+      <button routerLink="/reports-t"(click)="ReportsT()">Reports</button>
+    </div>
   
     <!-- Action Buttons -->
-    <div class="teacher-actions">
+    <!-- <div class="teacher-actions">
       <div *ngFor="let action of actions" class="action-card" (click)="onActionClick(action.route)">
         <i [class]="action.icon"></i>
         <span>{{ action.title }}</span>
-      </div>
+      </div> -->
     </div>
-  </div>
-  
+  <!-- actions = [
+  { title: 'Manage Subjects', icon: 'fas fa-book', route: '/manage-subjects' },
+  { title: 'View Attendance', icon: 'fas fa-calendar-check', route: '/view-attendance' },
+  { title: 'Schedule Classes', icon: 'fas fa-calendar-alt', route: '/schedule-classes' },
+  { title: 'Reports', icon: 'fas fa-chart-line', route: '/reports' },
+]; -->

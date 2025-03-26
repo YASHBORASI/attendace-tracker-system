@@ -1,0 +1,28 @@
+<!-- reports.component.html -->
+<div class="reports-container">
+    <h2 class="title">Attendance Reports</h2>
+  
+    <div *ngIf="reports.length === 0" class="no-reports">
+      <p>No reports available for your subjects.</p>
+    </div>
+  
+    <div *ngIf="reports.length > 0" class="report-list">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Attendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of reports">
+            <td>{{ report.subject }}</td>
+            <td>{{ report.date | date }}</td>
+            <td>{{ report.attendancePercentage }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

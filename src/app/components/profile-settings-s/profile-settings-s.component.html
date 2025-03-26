@@ -1,0 +1,16 @@
+<!-- profile-settings.component.html -->
+<div class="profile-settings">
+    <h2>Profile Settings</h2>
+  
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="profile.name">
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="profile.email">
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="profile.password">
+  
+    <button (click)="updateProfile()">Update Profile</button>
+  </div>
+  

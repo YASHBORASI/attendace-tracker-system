@@ -15,6 +15,11 @@
         <i [class]="action.icon"></i>
         <span>{{ action.title }}</span>
       </div>
+      <div class="student-actions">
+        <button routerLink="/view-subjects-s" (click)="ViewSubjectsS()">View Subjects</button>
+        <button routerLink="/view-attendance-s"(click)="ViewAttendanceS()">Manage Students</button>
+        <button routerLink="/download-reports-s"(click)="AttendanceReport()">Attendance Reports</button>
+        <button routerLink="/profile-settings-s"(click)="ProfileSettingsS()">Profile Settings</button>
+      </div>
     </div>
   </div>
-  

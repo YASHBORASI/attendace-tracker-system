@@ -37,4 +37,13 @@ export class AdminDashboardComponent {
   manageTeachers() {
     this.routes.navigate(['/manage-teachers']);
   }
+  manageStudents(){
+    this.routes.navigate(['/manage-students']);
+  }
+  AttendanceReport(){
+    this.routes.navigate(['/attendance-report']);
+  }
+  ManageCourses(){
+    this.routes.navigate(['/manage-courses']);
+  }
 }

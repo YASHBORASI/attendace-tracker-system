@@ -28,14 +28,6 @@
     margin-bottom: 40px;
   }
   
-  /* Action Cards Section */
-  .student-actions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-  }
   
   /* Individual action cards */
   .action-card {
@@ -82,4 +74,18 @@
       font-size: 1.1em;
     }
   }
-  
+
+  .admin-actions, .teacher-actions, .student-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  .admin-actions, .teacher-actions, .student-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+  }

@@ -1,0 +1,49 @@
+/* view-attendance.component.css */
+.attendance-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  
+  .attendance-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  .attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .attendance-table th, .attendance-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .attendance-table th {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  .attendance-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .attendance-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .present {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .absent {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  

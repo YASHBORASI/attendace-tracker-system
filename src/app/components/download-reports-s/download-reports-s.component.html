@@ -1,0 +1,12 @@
+<!-- download-reports.component.html -->
+<div class="download-reports">
+    <h2>Download Attendance Report</h2>
+  
+    <label for="report-type">Choose Report Type:</label>
+    <select id="report-type" [(ngModel)]="selectedReportType">
+      <option *ngFor="let type of reportTypes" [value]="type">{{ type }}</option>
+    </select>
+  
+    <button (click)="downloadReport()">Download Report</button>
+  </div>
+  

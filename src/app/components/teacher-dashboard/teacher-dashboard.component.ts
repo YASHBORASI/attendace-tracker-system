@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-dashboard',
@@ -14,14 +15,14 @@ export class TeacherDashboardComponent {
   upcomingClasses: number = 5;
 
   // Actions for the teacher
-  actions = [
-    { title: 'Manage Subjects', icon: 'fas fa-book', route: '/manage-subjects' },
-    { title: 'View Attendance', icon: 'fas fa-calendar-check', route: '/view-attendance' },
-    { title: 'Schedule Classes', icon: 'fas fa-calendar-alt', route: '/schedule-classes' },
-    { title: 'Reports', icon: 'fas fa-chart-line', route: '/reports' },
-  ];
+  // actions = [
+  //   { title: 'Manage Subjects', icon: 'fas fa-book', route: '/manage-subjects' },
+  //   { title: 'View Attendance', icon: 'fas fa-calendar-check', route: '/view-attendance' },
+  //   { title: 'Schedule Classes', icon: 'fas fa-calendar-alt', route: '/schedule-classes' },
+  //   { title: 'Reports', icon: 'fas fa-chart-line', route: '/reports' },
+  // ];
 
-  constructor() { }
+  constructor(private routes: Router) { }
 
   ngOnInit(): void {
     // Any initialization logic can be placed here
@@ -31,4 +32,17 @@ export class TeacherDashboardComponent {
     // Handle action click navigation (placeholder)
     console.log(`Navigating to ${route}`);
   }
+  ManageSubjectsT(){
+    this.routes.navigate(['/manage-subjects-t']);
+  }
+  ViewAttendanceT(){
+    this.routes.navigate(['/view-attendance-t']);
+  }
+  ScheduleClassesT(){
+    this.routes.navigate(['/schedule-classes-t']);
+  }
+  ReportsT(){
+    this.routes.navigate(['/reports-t']);
+  }
+
 }

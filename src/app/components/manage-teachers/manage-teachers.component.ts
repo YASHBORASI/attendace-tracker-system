@@ -5,9 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-teachers',
-  imports: [
-    MatTableModule,
-  ],
+  imports: [  MatTableModule ],
   templateUrl: './manage-teachers.component.html',
   styleUrl: './manage-teachers.component.scss'
 })

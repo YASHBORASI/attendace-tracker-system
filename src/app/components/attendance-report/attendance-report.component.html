@@ -1,0 +1,27 @@
+<!-- attendance-report.component.html -->
+<div class="attendance-report">
+    <h2>Attendance Reports</h2>
+    
+    <div>
+      <label for="filter">Filter by Student Name:</label>
+      <input type="text" id="filter" [(ngModel)]="filterCriteria" (input)="filterReports()">
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of filteredReports">
+          <td>{{ report.studentName }}</td>
+          <td>{{ report.date }}</td>
+          <td>{{ report.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
