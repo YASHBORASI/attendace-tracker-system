@@ -1,24 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { User } from '../../model/user';
 import { Router } from '@angular/router';
+import { SharedServiceService } from '../../Shared Service/shared-service.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  private http = inject(HttpClient);
   loginForm: FormGroup;
-  dropdownOptions = ['Admin', 'Student', 'Teacher'];
+  dropdownOptions = ['admin', 'student', 'teacher'];
 
-  constructor(private fb: FormBuilder, private routes: Router) {
+  constructor(private fb: FormBuilder, private routes: Router, private sharedService :SharedServiceService) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['Student', Validators.required]
+      role: ['student', Validators.required]
     });
   }
 
@@ -29,11 +32,14 @@ export class LoginComponent {
       formValues.password,
       formValues.role
     );
-    if (user.role === 'Admin') {
+    this.sharedService.login(user).subscribe((data: any) => {
+      console.log(data);
+    });
+    if (user.role === 'admin') {
       this.routes.navigate(['/admin-dashboard']);
-    } else if (user.role === 'Student') {
+    } else if (user.role === 'student') {
       this.routes.navigate(['/student-dashboard']);
-    } else if (user.role === 'Teacher') {
+    } else if (user.role === 'teacher') {
       this.routes.navigate(['/teacher-dashboard']);
     } else {
       this.routes.navigate(['']);
