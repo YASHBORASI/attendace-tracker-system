@@ -33,6 +33,7 @@ export class LoginComponent {
       formValues.role
     );
     this.sharedService.login(user).subscribe((data: any) => {
+      sessionStorage.setItem('authToken', data.token);
       console.log(data);
     });
     if (user.role === 'admin') {
@@ -42,7 +43,7 @@ export class LoginComponent {
     } else if (user.role === 'teacher') {
       this.routes.navigate(['/teacher-dashboard']);
     } else {
-      this.routes.navigate(['']);
+      this.routes.navigate(['/Login Page']);
     }
   }
 
