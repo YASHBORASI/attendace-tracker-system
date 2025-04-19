@@ -65,4 +65,12 @@ export const serverRoutes: ServerRoute[] = [
     path: 'reports-t',
     renderMode: RenderMode.Client
   },
+  {
+    path: 'add-teacher',
+    renderMode: RenderMode.Client
+  },
+  {
+    path: 'add-student',
+    renderMode: RenderMode.Client
+  },
 ];

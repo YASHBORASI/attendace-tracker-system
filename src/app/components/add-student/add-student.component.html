@@ -1,0 +1,52 @@
+<div class="form-container">
+    <h2>Add New Student</h2>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>First Name:</label>
+        <input type="text" formControlName="firstname" />
+      </div>
+  
+      <div>
+        <label>Last Name:</label>
+        <input type="text" formControlName="lastname" />
+      </div>
+  
+      <div>
+        <label>Username:</label>
+        <input type="text" formControlName="username" />
+      </div>
+      
+      <div>
+        <label>Password:</label>
+        <input type="password" formControlName="password" />
+      </div>
+  
+      <div>
+        <label>Email:</label>
+        <input type="email" formControlName="email" />
+      </div>
+    
+      <div>
+        <label>Enrollment Number:</label>
+        <input type="text" formControlName="enrollmentNo" />
+      </div>
+    
+      <div>
+        <label>Phone:</label>
+        <input type="text" formControlName="mobile" />
+      </div>
+  
+      <div>
+        <label>Course:</label>
+        <input type="text" formControlName="course" />
+      </div>
+    
+      <div>
+        <label>Semester:</label>
+        <input type="text" formControlName="semester" />
+      </div>
+  
+      <button type="submit" [disabled]="studentForm.invalid">Add Student</button>
+    </form>
+  </div>
+  

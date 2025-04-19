@@ -41,6 +41,6 @@ export class ManageStudentsComponent {
   //   });
   }
   openAddStudentDialog(){
-
+    this.routes.navigate(['/add-student']);
   }
 }

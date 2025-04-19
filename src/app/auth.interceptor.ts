@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
  // const authService = inject(SharedServiceService);
-  const token = localStorage.getItem('authToken'); // Get token from service or sessionStorage
+  const token = sessionStorage.getItem('authToken'); // Get token from service or sessionStorage
 
   if (token) {
     const authReq = req.clone({

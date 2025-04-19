@@ -1,0 +1,48 @@
+<form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>First Name:</label>
+    <input type="text" formControlName="firstname" />
+  </div>
+
+  <div>
+    <label>Last Name:</label>
+    <input type="text" formControlName="lastname" />
+  </div>
+
+  <div>
+    <label>Username:</label>
+    <input type="text" formControlName="username" />
+  </div>
+
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password" />
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+  </div>
+
+  <div>
+    <label>Department:</label>
+    <input type="text" formControlName="department" />
+  </div>
+
+  <div>
+    <label>Phone:</label>
+    <input type="text" formControlName="mobile" />
+  </div>
+
+  <div>
+    <label>Designation:</label>
+    <input type="text" formControlName="designation" />
+  </div>
+
+  <div>
+    <label>Hire Date:</label>
+    <input type="date" formControlName="hireDate" />
+  </div>
+
+  <button type="submit" [disabled]="teacherForm.invalid">Submit</button>
+</form>

@@ -15,6 +15,8 @@ import { ManageSubjectsTComponent } from './components/manage-subjects-t/manage-
 import { ViewAttendanceTComponent } from './components/view-attendance-t/view-attendance-t.component';
 import { ScheduleClassesTComponent } from './components/schedule-classes-t/schedule-classes-t.component';
 import { ReportsTComponent } from './components/reports-t/reports-t.component';
+import { AddTeacherComponent } from './components/add-teacher/add-teacher.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
 
 export const routes: Routes = [
     {
@@ -96,5 +98,15 @@ export const routes: Routes = [
         path: 'reports-t',
         component: ReportsTComponent,
         title: 'Reports',
+    },
+    {
+        path: 'add-teacher',
+        component: AddTeacherComponent,
+        title: 'add teacher',
+    },
+    {
+        path: 'add-student',
+        component: AddStudentComponent,
+        title: 'add Student',
     },
 ];

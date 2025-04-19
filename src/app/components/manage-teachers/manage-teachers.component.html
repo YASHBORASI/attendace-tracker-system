@@ -1,18 +1,29 @@
 <h2>Manage Teachers</h2>
 <button mat-raised-button color="primary" (click)="openAddTeacherDialog()">Add Teacher</button>
-<mat-table >
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let teacher"> {{teacher.name}} </td>
-  </ng-container>
-  <!-- Add other columns such as email, department, etc. -->
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let teacher">
-      <button mat-button (click)="editTeacher(teacher)">Edit</button>
-      <button mat-button color="warn" (click)="deleteTeacher(teacher.id)">Delete</button>
-    </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</mat-table>
+<div class="user-list">
+  <div class="user-card" *ngFor="let user of users">
+    <div class="user-info">
+      <div class="info-item">
+        <span class="label">ID:</span> {{ user._id }}
+      </div>
+      <div class="info-item">
+        <span class="label">Name:</span>
+        {{ user.name || (user.firstname + ' ' + user.lastname) }}
+      </div>
+      <div class="info-item">
+        <span class="label">Username:</span> {{ user.username }}
+      </div>
+      <div class="info-item">
+        <span class="label">Email:</span> {{ user.email }}
+      </div>
+      <div class="info-item">
+        <span class="label">Role:</span> {{ user.role }}
+      </div>
+    </div>
+    <div class="actions">
+      
+      <button (click)="editTeacher(user)">Edit</button>
+      <button (click)="deleteTeacher(user._id)">Delete</button>
+    </div>
+  </div>
+</div>
