@@ -74,18 +74,48 @@
       font-size: 1.1em;
     }
   }
+/* Section for action buttons (e.g., Manage Students, View Reports) */
+.admin-actions, .teacher-actions, .student-actions{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+  
+/* Style for action buttons */
+button {
+  padding: 12px 20px;
+  font-size: 1.1em;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .admin-actions, .teacher-actions, .student-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  background-color: #004494;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 15px;
   }
-  .admin-actions, .teacher-actions, .student-actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
+
+  h1 {
+    font-size: 2.2em;
   }
+
+  button {
+    font-size: 1em;
+  }
+}

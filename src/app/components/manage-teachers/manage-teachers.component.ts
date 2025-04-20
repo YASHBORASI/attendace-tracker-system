@@ -13,47 +13,40 @@ import { SharedServiceService } from '../../Shared Service/shared-service.servic
 export class ManageTeachersComponent {
   teachers: Teacher[] = [];
   displayedColumns: string[] = ['name', 'email', 'department', 'actions'];
-  users:any;
+  users: any;
 
-  constructor(private routes: Router,private sharedService :SharedServiceService) { }
+  constructor(private routes: Router, private sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
     this.getTeachers();
   }
 
   getTeachers() {
+    this.users = [];
     this.sharedService.getAllUsers().subscribe((data: any) => {
-      this.users = data;
+      data.filter((x: any) => {
+        if (x.role == "teacher") {
+          this.users.push(x);
+        }
+      })
     });
-
-    console.log(this.users);
-
-
-    // this.teacherService.getAllTeachers().subscribe((data) => {
-    //   this.teachers = data;
-    // });
   }
 
-  addTeacher(teacher: Teacher) {
-    // this.teacherService.addTeacher(teacher).subscribe(() => {
-    //   this.getTeachers(); // Refresh list after adding
-    // });
-  }
-
-  editTeacher(teacher: Teacher) {
-    // Logic to edit teacher
+  openEditTeacherDialog(teacher: Teacher,id:any) {
+    this.sharedService.add = false;
+    this.sharedService.selectedTeacher = teacher;
+    this.sharedService.selectedTeacherID = id;
+    this.routes.navigate(['/add-teacher']);
   }
 
   deleteTeacher(id: number) {
-    console.log(id,'id');
     this.sharedService.delete(id).subscribe(() => {
       this.getTeachers(); // Refresh list after deletion
-      this.sharedService.getAllUsers().subscribe((data: any) => {
-        this.users = data;
-      });
     });
   }
+
   openAddTeacherDialog() {
+    this.sharedService.add = true;
     this.routes.navigate(['/add-teacher']);
 
   }

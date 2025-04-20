@@ -17,7 +17,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   dropdownOptions = ['admin', 'student', 'teacher'];
 
-  constructor(private fb: FormBuilder, private routes: Router, private sharedService :SharedServiceService) {
+  constructor(private fb: FormBuilder, private routes: Router, private sharedService: SharedServiceService) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -33,18 +33,19 @@ export class LoginComponent {
       formValues.role
     );
     this.sharedService.login(user).subscribe((data: any) => {
-      sessionStorage.setItem('authToken', data.token);
-      console.log(data);
+      if (data) {
+        sessionStorage.setItem('authToken', data.token);
+        if (user.role === 'admin') {
+          this.routes.navigate(['/admin-dashboard']);
+        } else if (user.role === 'student') {
+          this.routes.navigate(['/student-dashboard']);
+        } else if (user.role === 'teacher') {
+          this.routes.navigate(['/teacher-dashboard']);
+        }
+      } else {
+        this.routes.navigate(['/Login Page']);
+        
+      }
     });
-    if (user.role === 'admin') {
-      this.routes.navigate(['/admin-dashboard']);
-    } else if (user.role === 'student') {
-      this.routes.navigate(['/student-dashboard']);
-    } else if (user.role === 'teacher') {
-      this.routes.navigate(['/teacher-dashboard']);
-    } else {
-      this.routes.navigate(['/Login Page']);
-    }
   }
-
 }

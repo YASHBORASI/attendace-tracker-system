@@ -41,7 +41,6 @@ throw new Error('Method not implemented.');
 
   onActionClick(route: string): void {
     // Navigate to the selected action's route (placeholder action)
-    console.log(`Navigating to ${route}`);
   }
   ViewSubjectsS(){
     this.routes.navigate(['/view-subjects-s']);

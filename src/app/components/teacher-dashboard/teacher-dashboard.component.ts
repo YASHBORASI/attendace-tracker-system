@@ -30,7 +30,6 @@ export class TeacherDashboardComponent {
 
   onActionClick(route: string): void {
     // Handle action click navigation (placeholder)
-    console.log(`Navigating to ${route}`);
   }
   ManageSubjectsT(){
     this.routes.navigate(['/manage-subjects-t']);

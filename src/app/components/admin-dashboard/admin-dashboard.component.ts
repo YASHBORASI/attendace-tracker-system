@@ -26,14 +26,13 @@ export class AdminDashboardComponent {
   // Fetching statistics for the dashboard
   getDashboardStats() {
     this.sharedService.getAllUsers().subscribe((data: any) => {
-      console.log(data);
+      this.totalAttendanceRecords = data.length;
       data.filter((x: any)=>{
         if(x.role == "student"){
           this.totalStudents++
         }else if (x.role == "teacher"){
           this.totalTeachers++
         }
-        console.log(x)
       })
     });
 

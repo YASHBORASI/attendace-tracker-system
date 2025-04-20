@@ -17,12 +17,12 @@
         <span class="label">Email:</span> {{ user.email }}
       </div>
       <div class="info-item">
-        <span class="label">Role:</span> {{ user.role }}
+        <span class="label">Designation:</span> {{ user.designation }}
       </div>
     </div>
     <div class="actions">
       
-      <button (click)="editTeacher(user)">Edit</button>
+      <button (click)="openEditTeacherDialog(user,user._id)">Edit</button>
       <button (click)="deleteTeacher(user._id)">Delete</button>
     </div>
   </div>
