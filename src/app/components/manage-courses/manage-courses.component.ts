@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedServiceService } from '../../Shared Service/shared-service.service';
+import { Course } from '../../model/course';
 
 @Component({
   selector: 'app-manage-courses',
@@ -10,52 +12,39 @@ import { Router } from '@angular/router';
   styleUrl: './manage-courses.component.scss'
 })
 export class ManageCoursesComponent {
-  courses: any[] = [];
-  newCourse: any = { name: '', description: '' };
-  selectedCourse: any = null;
-  courseService: any;
 
-  constructor(private routes: Router) { }
-
+  constructor(private routes: Router, private sharedService: SharedServiceService) { }
+  courses: any;
   ngOnInit(): void {
     this.fetchCourses();
   }
 
   fetchCourses(): void {
-    this.courseService.getCourses().subscribe(
-      (data: any[]) => this.courses = data,
-      (error: any) => console.error('Error fetching courses', error)
-    );
+    this.courses = [];
+    this.sharedService.getCourses().subscribe((data: any) => {
+      this.courses = data;
+      console.log(this.courses)
+    });
+
   }
 
-  addCourse(): void {
-    this.courseService.addCourse(this.newCourse).subscribe(
-      () => {
-        this.fetchCourses();
-        this.newCourse = { name: '', description: '' };
-      },
-      (error: any) => console.error('Error adding course', error)
-    );
+  openAddCourseDialog(): void {
+    this.sharedService.add = true;
+    this.routes.navigate(['/add-course']);
   }
 
-  updateCourse(): void {
-    if (this.selectedCourse) {
-      this.courseService.updateCourse(this.selectedCourse).subscribe(
-        () => this.fetchCourses(),
-        (error: any) => console.error('Error updating course', error)
-      );
-      this.selectedCourse = null;
-    }
+
+  openEditCourseDialog(courses: Course, id: any) {
+    this.sharedService.add = false;
+    this.sharedService.selectedCourse = courses;
+    this.sharedService.selectedCourseID = id;
+    this.routes.navigate(['/add-course']);
   }
 
-  deleteCourse(courseId: number): void {
-    this.courseService.deleteCourse(courseId).subscribe(
-      () => this.fetchCourses(),
-      (error: any) => console.error('Error deleting course', error)
-    );
-  }
 
-  selectCourse(course: any): void {
-    this.selectedCourse = { ...course };
+  deleteCourse(id: any) {
+    this.sharedService.deleteCourse(id).subscribe(() => {
+      this.fetchCourses(); // Refresh list after deletion
+    });
   }
 }

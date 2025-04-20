@@ -1,0 +1,22 @@
+<div class="form-container">
+    <h2>Add Subjects</h2>
+    <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>Subject:</label>
+        <input type="text" formControlName="Subject" />
+      </div>
+  
+      <div>
+        <label>Course:</label>
+        <input type="text" formControlName="Course" />
+      </div>
+  
+      <div>
+        <label>Credit:</label>
+        <input type="text" formControlName="Credit" />
+      </div>
+      <button type="submit" [disabled]="subjectForm.invalid">Add Student</button>
+    </form>
+  </div>
+  
+

@@ -73,4 +73,12 @@ export const serverRoutes: ServerRoute[] = [
     path: 'add-student',
     renderMode: RenderMode.Client
   },
+  {
+    path: 'add-course',
+    renderMode: RenderMode.Client
+  },
+  {
+    path: 'add-subject',
+    renderMode: RenderMode.Client
+  },
 ];

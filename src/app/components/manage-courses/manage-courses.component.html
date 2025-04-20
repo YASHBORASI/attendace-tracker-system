@@ -1,46 +1,27 @@
-<!-- course-management.component.html -->
-<div class="course-management">
-    <h2>Manage Courses</h2>
-  
-    <div>
-      <h3>Add New Course</h3>
-      <label for="course-name">Course Name:</label>
-      <input type="text" id="course-name" [(ngModel)]="newCourse.name">
-      <label for="course-desc">Description:</label>
-      <input type="text" id="course-desc" [(ngModel)]="newCourse.description">
-      <button (click)="addCourse()">Add Course</button>
-    </div>
-  
-    <div *ngIf="selectedCourse">
-      <h3>Edit Course</h3>
-      <label for="edit-course-name">Course Name:</label>
-      <input type="text" id="edit-course-name" [(ngModel)]="selectedCourse.name">
-      <label for="edit-course-desc">Description:</label>
-      <input type="text" id="edit-course-desc" [(ngModel)]="selectedCourse.description">
-      <button (click)="updateCourse()">Save Changes</button>
-    </div>
-  
-    <div>
-      <h3>Course List</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let course of courses">
-            <td>{{ course.name }}</td>
-            <td>{{ course.description }}</td>
-            <td>
-              <button (click)="selectCourse(course)">Edit</button>
-              <button (click)="deleteCourse(course.id)">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<h2>Manage Course</h2>
+<button mat-raised-button color="primary" (click)="openAddCourseDialog()">Add Course</button>
+
+<div class="user-list">
+    <div class="user-card" *ngFor="let course of courses">
+      <div class="user-info">
+        <div class="info-item">
+          <span class="label">Name : </span> {{ course.name }}
+        </div>
+       
+        <div class="info-item">
+          <span class="label">Code:</span> {{ course.code }}
+        </div>
+        <div class="info-item">
+          <span class="label">description:</span> {{ course.description }}
+        </div>
+        <div class="info-item">
+            <span class="label">semester:</span> {{ course.semester }}
+          </div>
+        <div class="actions">  
+          <button (click)="openEditCourseDialog(course,course._id)">Edit</button>
+          <button (click)="deleteCourse(course._id)">Delete</button>
+        </div>
+      </div>
+     
     </div>
   </div>
-  

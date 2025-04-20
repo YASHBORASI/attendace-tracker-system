@@ -17,6 +17,8 @@ import { ScheduleClassesTComponent } from './components/schedule-classes-t/sched
 import { ReportsTComponent } from './components/reports-t/reports-t.component';
 import { AddTeacherComponent } from './components/add-teacher/add-teacher.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+import { AddSubjectComponent } from './components/add-subject/add-subject.component';
 
 export const routes: Routes = [
     {
@@ -108,5 +110,15 @@ export const routes: Routes = [
         path: 'add-student',
         component: AddStudentComponent,
         title: 'add Student',
+    },
+    {
+        path: 'add-course',
+        component: AddCourseComponent,
+        title: 'add Course',
+    },
+    {
+        path: 'add-subject',
+        component: AddSubjectComponent,
+        title: 'add Course',
     },
 ];

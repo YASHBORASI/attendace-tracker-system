@@ -1,0 +1,160 @@
+/* Layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styling */
+  .mat-elevation-z8 {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
+  }
+  
+  mat-header-row {
+    background-color: #f5f5f5;
+  }
+  
+  mat-header-cell {
+    font-weight: bold;
+    color: #333;
+    padding: 12px;
+  }
+  
+  mat-cell {
+    padding: 12px;
+  }
+  
+  mat-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Button Styling */
+  button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .mat-raised-button {
+    text-transform: none;
+    font-weight: bold;
+  }
+  
+  .mat-button {
+    color: #1976d2;
+  }
+  
+  .mat-button:hover {
+    background-color: rgba(25, 118, 210, 0.1);
+  }
+  
+  /* Add Teacher Button */
+  .add-teacher-button {
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive Table */
+  @media (max-width: 768px) {
+    .mat-elevation-z8 {
+      width: 100%;
+      overflow-x: auto;
+    }
+  
+    mat-cell, mat-header-cell {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    button {
+      margin-bottom: 8px;
+    }
+  }
+  /* Container for all user cards */
+  .user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  }
+  
+  /* Individual user card */
+  .user-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .user-card:hover {
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Flex layout for user info inside a card */
+  .user-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  }
+  
+  /* Individual info item */
+  .info-item {
+  flex: 1 1 250px;
+  }
+  
+  /* Label styling */
+  .label {
+  font-weight: bold;
+  color: #333;
+  }
+  
+  /* Action button area */
+  .actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  }
+  
+  /* Buttons */
+  .actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  }
+  
+  .actions button:hover {
+  background-color: #0056b3;
+  }
+  
+  /* Delete button styling (optional: red variant) */
+  .actions button:last-child {
+  background-color: #dc3545;
+  }
+  
+  .actions button:last-child:hover {
+  background-color: #a71d2a;
+  }
+  
+  /* Page title */
+  .title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  }

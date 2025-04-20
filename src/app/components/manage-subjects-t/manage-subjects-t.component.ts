@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedServiceService } from '../../Shared Service/shared-service.service';
 
 @Component({
   selector: 'app-manage-subjects-t',
@@ -14,19 +15,20 @@ export class ManageSubjectsTComponent {
   newSubject: any = { name: '', course: '', credits: '' };
   selectedSubject: any = null;
   teacherId!: number;
+  subject:any;
 
-  constructor(private route: ActivatedRoute, private routes: Router) { }
+  constructor(private route: ActivatedRoute, private routes: Router,private sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
-    this.teacherId = +this.route.snapshot.paramMap.get('id')!;
     this.fetchSubjects();
   }
 
   fetchSubjects(): void {
-    // this.subjectService.getSubjects(this.teacherId).subscribe(
-    //   (data: any[]) => this.subjects = data,
-    //   (error=0) => console.error('Error fetching subjects', error)
-    // );
+    this.subject = [];
+    this.sharedService.getSubjects().subscribe((data: any) => {
+      this.subjects = data;
+      
+    });
   }
 
   addSubject(): void {
@@ -58,5 +60,9 @@ export class ManageSubjectsTComponent {
 
   selectSubject(subject: any): void {
     this.selectedSubject = { ...subject };
+  }
+  openAddStudentDialog(){
+    this.sharedService.add = true;
+    this.routes.navigate(['/add-subject']);
   }
 }
