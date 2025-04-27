@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
-import { Course } from '../../model/course';
+import { Course } from '../../model/student/course';
 
 @Component({
   selector: 'app-manage-courses',

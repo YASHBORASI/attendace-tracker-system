@@ -1,7 +1,7 @@
 <!-- manage-subjects.component.html -->
 <div class="manage-subjects">
     <h2>Manage Subjects</h2>
-    <button mat-raised-button color="primary" (click)="openAddStudentDialog()">Add Subjects</button>
+    <button mat-raised-button color="primary" (click)="openAddSubjectDialog()">Add Subjects</button>
 
 <div class="user-list">
     <div class="user-card" *ngFor="let subject of subjects">
@@ -16,8 +16,10 @@
         <div class="info-item">
           <span class="label">description:</span> {{ subject.credit }}
         </div>
-          <!-- <button (click)="openEditCourseDialog(course,course._id)">Edit</button>
-          <button (click)="deleteCourse(course._id)">Delete</button> -->
+        <div class="actions">  
+          <button (click)="openEditSubjectDalog(subject, subject._id)">Edit</button>
+          <button (click)="deleteSubjects(subject._id)">Delete</button>
+        </div>
         </div>
       </div>
      

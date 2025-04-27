@@ -41,28 +41,37 @@ export class ManageSubjectsTComponent {
     // );
   }
 
-  updateSubject(): void {
-    // if (this.selectedSubject) {
-    //   this.subjectService.updateSubject(this.selectedSubject).subscribe(
-    //     () => this.fetchSubjects(),
-    //     (error=0) => console.error('Error updating subject', error)
-    //   );
-    //   this.selectedSubject = null;
-    // }
-  }
+  // getSubjects() {
+  //   this.subject = [];
+  //   this.sharedService.getAllUsers().subscribe((data: any) => {
+  //     this.subject = data;
+  //   });
+  // }
 
-  deleteSubject(subjectId: number): void {
-    // this.subjectService.deleteSubject(subjectId).subscribe(
-    //   () => this.fetchSubjects(),
-    //   (error=0) => console.error('Error deleting subject', error)
-    // );
-  }
+  // deleteSubject(subjectId: number): void {
+  //   // this.subjectService.deleteSubject(subjectId).subscribe(
+  //   //   () => this.fetchSubjects(),
+  //   //   (error=0) => console.error('Error deleting subject', error)
+  //   // );
+  // }
 
   selectSubject(subject: any): void {
     this.selectedSubject = { ...subject };
   }
-  openAddStudentDialog(){
+  openAddSubjectDialog(){
     this.sharedService.add = true;
     this.routes.navigate(['/add-subject']);
   }
+  openEditSubjectDalog(subject: any ,id:any) {
+        this.sharedService.add = false;
+        this.sharedService.selectedSubject = subject;
+        this.sharedService.selectedSubjectID = id;
+        this.routes.navigate(['/add-subject']);
+      }
+  
+      deleteSubjects(id: any) {
+        this.sharedService.deleteSubject(id).subscribe(() => {
+          this.fetchSubjects(); // Refresh list after deletion
+        });
+      }
 }

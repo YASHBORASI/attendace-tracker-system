@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
 import { Router } from '@angular/router';
-import { Course } from '../../model/course';
+import { Course } from '../../model/student/course';
 
 @Component({
   selector: 'app-add-course',

@@ -55,7 +55,7 @@ export class AddSubjectComponent {
           this.routes.navigate(['/manage-subjects-t']);
         });
       } else {
-        this.sharedService.editUser(subject, this.sharedService.selectedStudentID).subscribe((data: any) => {
+        this.sharedService.editSubject(subject, this.sharedService.selectedSubjectID).subscribe((data: any) => {
           this.routes.navigate(['/manage-subjects-t']);
         });
       }
