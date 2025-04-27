@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 import { Router } from '@angular/router';
+import { SharedServiceService } from '../../Shared Service/shared-service.service';
 
 @Component({
   selector: 'app-teacher-dashboard',
@@ -22,7 +23,7 @@ export class TeacherDashboardComponent {
   //   { title: 'Reports', icon: 'fas fa-chart-line', route: '/reports' },
   // ];
 
-  constructor(private routes: Router) { }
+  constructor(private routes: Router,private sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
     // Any initialization logic can be placed here
@@ -38,6 +39,7 @@ export class TeacherDashboardComponent {
     this.routes.navigate(['/view-attendance-t']);
   }
   ScheduleClassesT(){
+    this.sharedService.add = true;
     this.routes.navigate(['/schedule-classes-t']);
   }
   ReportsT(){

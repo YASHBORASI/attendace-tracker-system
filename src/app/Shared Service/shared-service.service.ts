@@ -5,6 +5,7 @@ import { Teacher } from '../model/teacher';
 import { Student } from '../model/student';
 import { Course } from '../model/student/course';
 import { Subject } from '../model/subject';
+import { ScheduleClasses } from '../model/scheduleClass';
 
 
 @Injectable({
@@ -24,6 +25,8 @@ export class SharedServiceService {
   selectedCourseID:number=0;
   selectedSubject!: Subject;
   selectedSubjectID:number=0;
+  selectedScheduleClass!: ScheduleClasses;
+  selectedScheduleClassID:number=0;
   
 
 
@@ -78,5 +81,9 @@ export class SharedServiceService {
 
   editSubject(subject: any,id:any): Observable<any> {
     return this.http.put(`http://localhost:5000/api/subjects/${id}`, { ...subject });
+  }
+
+  scheduleClass(schedule: any): Observable<any> {
+    return this.http.post('http://localhost:5000/api/schedule', { ...schedule });
   }
 }
