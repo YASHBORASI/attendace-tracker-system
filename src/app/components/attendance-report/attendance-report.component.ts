@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-attendance-report',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, LogoutButtonComponent],
+  standalone: true,
   templateUrl: './attendance-report.component.html',
   styleUrl: './attendance-report.component.scss'
 })

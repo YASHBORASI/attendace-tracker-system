@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
-import { Course } from '../../model/student/course';
+import { Course } from '../../model/course';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-manage-courses',
-  imports: [FormsModule, CommonModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule, LogoutButtonComponent],
   templateUrl: './manage-courses.component.html',
   styleUrl: './manage-courses.component.scss'
 })

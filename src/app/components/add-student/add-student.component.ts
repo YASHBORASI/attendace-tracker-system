@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
 import { Student } from '../../model/student';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-add-student',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, LogoutButtonComponent],
   templateUrl: './add-student.component.html',
   styleUrl: './add-student.component.scss'
 })

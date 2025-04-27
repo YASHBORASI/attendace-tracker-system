@@ -3,10 +3,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
 import { Subject } from '../../model/subject';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-add-subject',
-  imports: [ReactiveFormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule, LogoutButtonComponent],
   templateUrl: './add-subject.component.html',
   styleUrl: './add-subject.component.scss'
 })

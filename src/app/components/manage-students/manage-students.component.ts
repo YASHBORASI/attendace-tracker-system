@@ -5,10 +5,12 @@ import { Student } from '../../model/student';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
 import { CommonModule } from '@angular/common';
 import { Teacher } from '../../model/teacher';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-manage-students',
-  imports: [MatTableModule,CommonModule],
+  standalone: true,
+  imports: [MatTableModule, CommonModule, LogoutButtonComponent],
   templateUrl: './manage-students.component.html',
   styleUrl: './manage-students.component.scss'
 })

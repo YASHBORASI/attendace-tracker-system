@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { StatCardComponent } from '../stat-card/stat-card.component';
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-admin-dashboard',
-  imports: [StatCardComponent],
+standalone: true,
+  imports: [StatCardComponent, LogoutButtonComponent],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.scss'
 })

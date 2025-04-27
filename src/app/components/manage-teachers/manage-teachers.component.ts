@@ -3,10 +3,11 @@ import { Teacher } from '../../model/teacher';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-manage-teachers',
-  imports: [CommonModule],
+  imports: [CommonModule, LogoutButtonComponent],
   templateUrl: './manage-teachers.component.html',
   styleUrl: './manage-teachers.component.scss'
 })

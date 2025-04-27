@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SharedServiceService } from '../../Shared Service/shared-service.service';
 import { Router } from '@angular/router';
-import { Course } from '../../model/student/course';
+import { Course } from '../../model/course';
+import { LogoutButtonComponent } from '../../logout-button/logout-button.component';
 
 @Component({
   selector: 'app-add-course',
-  imports: [ReactiveFormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule, LogoutButtonComponent],
   templateUrl: './add-course.component.html',
   styleUrl: './add-course.component.scss'
 })
