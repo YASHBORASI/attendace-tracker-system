@@ -19,6 +19,7 @@ import { AddTeacherComponent } from './components/add-teacher/add-teacher.compon
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { AddCourseComponent } from './components/add-course/add-course.component';
 import { AddSubjectComponent } from './components/add-subject/add-subject.component';
+import { MarkAttendanceComponent } from './components/mark-attendance/mark-attendance.component';
 
 export const routes: Routes = [
     {
@@ -120,5 +121,10 @@ export const routes: Routes = [
         path: 'add-subject',
         component: AddSubjectComponent,
         title: 'add Course',
+    },
+    {
+        path: 'mark-attendance',
+        component: MarkAttendanceComponent,
+        title: 'mark-attendance',
     },
 ];

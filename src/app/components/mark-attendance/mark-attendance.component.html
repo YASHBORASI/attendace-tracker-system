@@ -1,0 +1,21 @@
+<div *ngIf="students.length > 0; else noClasses">
+<h2>Mark Attendance</h2>
+
+<form (ngSubmit)="submitAttendance()">
+  <table>
+    <tr>
+      <th>Student Name</th><th>Present</th><th>Absent</th>
+    </tr>
+    <tr *ngFor="let s of students">
+      <td>{{ s.firstname }} {{ s.lastname }}</td>
+      <td><input type="radio" [name]="'status-' + s._id" (change)="mark(s._id, 'Present')"></td>
+      <td><input type="radio" [name]="'status-' + s._id" (change)="mark(s._id, 'Absent')"></td>
+    </tr>
+  </table>
+
+  <button type="submit">Submit Attendance</button>
+</form>
+</div>
+<ng-template #noClasses>
+  <p style="text-align: center;">No Studentds available for the class.</p>
+</ng-template>

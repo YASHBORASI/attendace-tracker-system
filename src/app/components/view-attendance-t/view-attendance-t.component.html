@@ -1,26 +1,16 @@
-<!-- view-attendance.component.html -->
-<div class="attendance-container">
-    <h2>Attendance Records</h2>
-  
-    <table class="attendance-table">
-      <thead>
-        <tr>
-          <th>Student Name</th>
-          <th>Date</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let record of attendanceRecords">
-          <td>{{ record.studentName }}</td>
-          <td>{{ record.date | date: 'shortDate' }}</td>
-          <td>
-            <span [class]="record.status === 'Present' ? 'present' : 'absent'">
-              {{ record.status }}
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+<h2>Scheduled Classes</h2>
+
+<ul *ngIf="scheduledClasses.length > 0; else noClasses">
+  <li *ngFor="let classItem of scheduledClasses">
+    <div>
+      <strong>Subject:</strong> {{ classItem.subject }}<br>
+      <strong>Date:</strong> {{ classItem.date | date: 'longDate' }}<br>
+      <strong>Time:</strong> {{ classItem.startTime }} - {{ classItem.endTime }}
+    </div>
+    <button (click)="openAttendance(classItem)">Mark Attendance</button>
+  </li>
+</ul>
+
+<ng-template #noClasses>
+  <p style="text-align: center;">No scheduled classes available.</p>
+</ng-template>

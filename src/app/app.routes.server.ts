@@ -81,4 +81,8 @@ export const serverRoutes: ServerRoute[] = [
     path: 'add-subject',
     renderMode: RenderMode.Client
   },
+  {
+    path: 'mark-attendance',
+    renderMode: RenderMode.Client
+  },
 ];

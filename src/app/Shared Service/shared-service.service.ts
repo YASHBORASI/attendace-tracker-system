@@ -86,4 +86,8 @@ export class SharedServiceService {
   scheduleClass(schedule: any): Observable<any> {
     return this.http.post('http://localhost:5000/api/schedule', { ...schedule });
   }
+
+  getScheduleClass(): Observable<any> {
+    return this.http.get('http://localhost:5000/api/schedule');
+  }
 }

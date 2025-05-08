@@ -1,0 +1,58 @@
+/* Container */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Table headers */
+  table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Table rows */
+  table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Hover effect */
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Radio buttons alignment */
+  input[type="radio"] {
+    transform: scale(1.2);
+    margin: 0 10px;
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

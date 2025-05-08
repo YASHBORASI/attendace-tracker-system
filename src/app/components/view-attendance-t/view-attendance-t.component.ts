@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedServiceService } from '../../Shared Service/shared-service.service';
 
 @Component({
   selector: 'app-view-attendance-t',
@@ -12,19 +13,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ViewAttendanceTComponent {
   attendanceRecords: any[] = [];
   subjectId!: number;
+  scheduledClasses:any[]=[];
 
-  constructor(private route: ActivatedRoute, private routes: Router) {}
+
+  constructor(private route: ActivatedRoute, private routes: Router,private sharedService: SharedServiceService) {}
 
   ngOnInit(): void {
-    this.subjectId = +this.route.snapshot.paramMap.get('subjectId')!;
     this.fetchAttendance();
   }
 
   fetchAttendance(): void {
-    // this.attendanceService.getAttendance(this.subjectId).subscribe(
-    //   (data) => this.attendanceRecords = data,
-    //   (error) => console.error('Error fetching attendance data', error)
-    // );
+    this.sharedService.getScheduleClass().subscribe((data: any) => {
+      this.scheduledClasses = data;
+      console.log(data);
+    });
+  }
+
+  openAttendance(classItem :any){
+    this.sharedService.selectedScheduleClass = classItem;
+    this.routes.navigate(['/mark-attendance']);
   }
 }
 
