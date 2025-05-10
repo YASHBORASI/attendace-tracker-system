@@ -13,25 +13,39 @@ import { SharedServiceService } from '../../Shared Service/shared-service.servic
 export class ViewAttendanceTComponent {
   attendanceRecords: any[] = [];
   subjectId!: number;
-  scheduledClasses:any[]=[];
+  scheduledClasses: any[] = [];
 
 
-  constructor(private route: ActivatedRoute, private routes: Router,private sharedService: SharedServiceService) {}
+  constructor(private route: ActivatedRoute, private routes: Router, private sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
-    this.fetchAttendance();
+    this.fetchAttendanceRecords();
   }
 
-  fetchAttendance(): void {
+  fetchAttendanceRecords(): void {
     this.sharedService.getScheduleClass().subscribe((data: any) => {
       this.scheduledClasses = data;
       console.log(data);
     });
   }
 
-  openAttendance(classItem :any){
+  openAttendance(classItem: any, id: any) {
     this.sharedService.selectedScheduleClass = classItem;
+    this.sharedService.selectedScheduleClassID = id;
     this.routes.navigate(['/mark-attendance']);
+  }
+
+  deleteSchedulededClass(id: any) {
+    this.sharedService.deleteScheduleClass(id).subscribe(() => {
+      this.fetchAttendanceRecords(); // Refresh list after deletion
+    });
+  }
+
+  editSchedulededClass(classes: any, id: any) {
+    this.sharedService.add = false;
+    this.sharedService.selectedScheduleClass = classes;
+    this.sharedService.selectedScheduleClassID = id;
+    this.routes.navigate(['/schedule-classes-t']);
   }
 }
 

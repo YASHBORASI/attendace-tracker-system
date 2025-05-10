@@ -39,9 +39,9 @@ export class ScheduleClassesTComponent {
     } else {
       this.scheduleClassForm = this.fb.group({
         subject: [this.sharedService.selectedScheduleClass.subject, Validators.required],
-        lastname: [this.sharedService.selectedScheduleClass.date, Validators.required],
-        username: [this.sharedService.selectedScheduleClass.startTime, Validators.required],
-        password: [this.sharedService.selectedScheduleClass.endTime, Validators.required],
+        date: [this.sharedService.selectedScheduleClass.date, Validators.required],
+        startTime: [this.sharedService.selectedScheduleClass.startTime, Validators.required],
+        endTime: [this.sharedService.selectedScheduleClass.endTime, Validators.required],
       });
     }
   }
@@ -61,9 +61,9 @@ export class ScheduleClassesTComponent {
               this.routes.navigate(['/teacher-dashboard']);
             });
           } else {
-            // this.sharedService.editSubject(scheduleClass, this.sharedService.selectedSubjectID).subscribe((data: any) => {
-            //   this.routes.navigate(['/manage-subjects-t']);
-            // });
+            this.sharedService.editScheduleClass(scheduleClass, this.sharedService.selectedScheduleClassID).subscribe((data: any) => {
+              this.routes.navigate(['/teacher-dashboard']);
+            });
           }
         }
   }

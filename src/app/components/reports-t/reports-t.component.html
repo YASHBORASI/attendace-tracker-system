@@ -1,28 +1,36 @@
-<!-- reports.component.html -->
-<div class="reports-container">
-    <h2 class="title">Attendance Reports</h2>
-  
-    <div *ngIf="reports.length === 0" class="no-reports">
-      <p>No reports available for your subjects.</p>
-    </div>
-  
-    <div *ngIf="reports.length > 0" class="report-list">
-      <table class="report-table">
-        <thead>
-          <tr>
-            <th>Subject</th>
-            <th>Date</th>
-            <th>Attendance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let report of reports">
-            <td>{{ report.subject }}</td>
-            <td>{{ report.date | date }}</td>
-            <td>{{ report.attendancePercentage }}%</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  
+<h2>Attendance Report</h2>
+
+<label for="studentSelect"><strong>Select Student:</strong></label>
+<select id="studentSelect" [(ngModel)]="selectedStudentId">
+  <option value="">-- Select Student --</option>
+  <option *ngFor="let s of students" [value]="s._id">
+    {{ s.firstname }} {{ s.lastname }}
+  </option>
+</select>
+
+<button (click)="fetchAttendance()">View Report</button>
+
+<hr>
+
+<div *ngIf="isLoading">Loading attendance records...</div>
+
+<table *ngIf="attendanceRecords.length > 0">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Subject</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of attendanceRecords">
+      <td>{{ record.date | date: 'mediumDate' }}</td>
+      <td>{{ record.subjectId.name }}</td>
+      <td>{{ record.status }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!isLoading && attendanceRecords.length === 0 && selectedStudentId">
+  <p>No attendance records found for this student.</p>
+</div>

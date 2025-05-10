@@ -18,16 +18,16 @@ export class SharedServiceService {
 
   add: boolean = false;
   selectedTeacher!: Teacher;
-  selectedTeacherID:number=0;
+  selectedTeacherID: number = 0;
   selectedStudent!: Student;
-  selectedStudentID:number=0;
+  selectedStudentID: number = 0;
   selectedCourse!: Course;
-  selectedCourseID:number=0;
+  selectedCourseID: number = 0;
   selectedSubject!: Subject;
-  selectedSubjectID:number=0;
+  selectedSubjectID: number = 0;
   selectedScheduleClass!: ScheduleClasses;
-  selectedScheduleClassID:number=0;
-  
+  selectedScheduleClassID: number = 0;
+
 
 
   constructor(private http: HttpClient) { }
@@ -49,7 +49,7 @@ export class SharedServiceService {
     return this.http.delete(`http://localhost:5000/api/users/${id}`);
   }
 
-  editUser(user: any,id:any): Observable<any> {
+  editUser(user: any, id: any): Observable<any> {
     return this.http.put(`http://localhost:5000/api/users/${id}`, { ...user });
   }
 
@@ -65,7 +65,7 @@ export class SharedServiceService {
     return this.http.delete(`http://localhost:5000/api/course/${id}`);
   }
 
-  editCourse(user: any,id:any): Observable<any> {
+  editCourse(user: any, id: any): Observable<any> {
     return this.http.put(`http://localhost:5000/api/course/${id}`, { ...user });
   }
   addSubject(subject: any): Observable<any> {
@@ -79,7 +79,7 @@ export class SharedServiceService {
     return this.http.delete(`http://localhost:5000/api/subjects/${id}`);
   }
 
-  editSubject(subject: any,id:any): Observable<any> {
+  editSubject(subject: any, id: any): Observable<any> {
     return this.http.put(`http://localhost:5000/api/subjects/${id}`, { ...subject });
   }
 
@@ -89,5 +89,17 @@ export class SharedServiceService {
 
   getScheduleClass(): Observable<any> {
     return this.http.get('http://localhost:5000/api/schedule');
+  }
+
+  deleteScheduleClass(id: any): Observable<any> {
+    return this.http.delete(`http://localhost:5000/api/schedule/${id}`);
+  }
+
+  editScheduleClass(ScheduleClass: any, id: any): Observable<any> {
+    return this.http.put(`http://localhost:5000/api/schedule/${id}`, { ...ScheduleClass });
+  }
+
+  markAttendance(data: any[]): Observable<any> {
+    return this.http.post('http://localhost:5000/api/attendanceRoutes', data);
   }
 }

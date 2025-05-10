@@ -7,7 +7,9 @@
       <strong>Date:</strong> {{ classItem.date | date: 'longDate' }}<br>
       <strong>Time:</strong> {{ classItem.startTime }} - {{ classItem.endTime }}
     </div>
-    <button (click)="openAttendance(classItem)">Mark Attendance</button>
+    <button (click)="openAttendance(classItem,classItem._id)">Mark Attendance</button>
+    <button routerLink="/schedule-classes-t" (click)="editSchedulededClass(classItem, classItem._id)" style="background-color: orange;margin-left: 1rem;">Edit</button>
+    <button (click)="deleteSchedulededClass(classItem._id)" style="background-color: red;margin-left: 1rem;">Delete</button>
   </li>
 </ul>
 
